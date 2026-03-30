@@ -1,0 +1,182 @@
+/**
+ * Accordion - Elle Central Library
+ * Uses --uxl-mapped-component tokens only
+ */
+
+.uxl-accordion {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  --uxl-icon-context-color: var(--uxl-mapped-component-accordion-color-icon);
+}
+
+
+.uxl-accordion .uxl-accordion__icon {
+  color: var(--uxl-icon-context-color);
+}
+
+/* Icon.css sets .icon-component to the generic icon token; use accordion context here */
+.uxl-accordion .uxl-accordion__slot--trailing .icon-component {
+  color: var(--uxl-icon-context-color);
+}
+
+/* summary: native disclosure toggle — built-in keyboard (Enter/Space) and screen reader support */
+.uxl-accordion__summary {
+  display: flex;
+  align-items: center;
+  gap: var(--uxl-mapped-component-accordion-padding-gap);
+  padding: var(--uxl-mapped-component-accordion-padding-vertical)
+    var(--uxl-mapped-component-accordion-padding-horizontal);
+  width: 100%;
+  background: var(--uxl-mapped-component-accordion-color-background);
+  border: none;
+  font: inherit;
+  color: var(--uxl-mapped-component-accordion-color-text);
+  text-align: left;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.uxl-accordion__summary::-webkit-details-marker {
+  display: none;
+}
+
+.uxl-accordion__summary::marker {
+  display: none;
+}
+
+.uxl-accordion:not(.uxl-accordion--disabled) .uxl-accordion__summary:hover {
+  background-color: var(--uxl-mapped-component-accordion-color-state-filled-hover);
+}
+
+.uxl-accordion:not(.uxl-accordion--disabled) .uxl-accordion__summary:active {
+  background-color: var(--uxl-mapped-component-accordion-color-state-filled-pressed-and-dragged);
+}
+
+.uxl-accordion__summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.uxl-accordion.uxl-accordion--disabled .uxl-accordion__summary {
+  background-color: var(--uxl-mapped-component-accordion-color-state-filled-disabled-fill-and-stroke);
+  color: var(--uxl-mapped-component-accordion-color-state-disabled-text);
+  cursor: not-allowed;
+  --uxl-icon-context-color: var(--uxl-mapped-component-accordion-color-state-disabled-text);
+}
+
+.uxl-accordion.uxl-accordion--disabled .uxl-accordion__summary * {
+  color: var(--uxl-mapped-component-accordion-color-state-disabled-text);
+}
+
+/* Fallback for browsers without inert: prevent pointer interaction */
+.uxl-accordion.uxl-accordion--disabled {
+  pointer-events: none;
+}
+
+/* State overrides for design demos (Storybook) */
+.uxl-accordion__summary.uxl-accordion__summary--hover {
+  background-color: var(--uxl-mapped-component-accordion-color-state-filled-hover);
+}
+
+.uxl-accordion__summary.uxl-accordion__summary--pressed {
+  background-color: var(--uxl-mapped-component-accordion-color-state-filled-pressed-and-dragged);
+}
+
+.uxl-accordion__slot {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.uxl-accordion__slot--center {
+  flex: 1 0 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--uxl-mapped-component-accordion-inner-padding-gap);
+}
+
+/* Typography uses body/display switcher text; header title must follow accordion text token */
+.uxl-accordion:not(.uxl-accordion--disabled)
+  .uxl-accordion__summary
+  .uxl-accordion__slot--center
+  .typography-text {
+  color: var(--uxl-mapped-component-accordion-color-text);
+}
+
+.uxl-accordion__slot--trailing {
+  align-self: center;
+  width: fit-content;
+  height: fit-content;
+}
+
+.uxl-accordion__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: fit-content;
+  height: fit-content;
+  transition: transform 0.2s ease;
+}
+
+.uxl-accordion[data-open="true"] .uxl-accordion__icon {
+  transform: rotate(180deg);
+}
+
+/* Panel animation: grid 0fr → 1fr for smooth expand/collapse */
+.uxl-accordion__panel-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.uxl-accordion[data-open="true"] .uxl-accordion__panel-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.uxl-accordion__panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.uxl-accordion__panel {
+  display: flex;
+  flex-direction: column;
+  padding: var(--uxl-mapped-component-accordion-padding-vertical)
+    var(--uxl-mapped-component-accordion-padding-horizontal);
+  background: var(--uxl-mapped-theme-color-neutral-background-alt);
+  width: 100%;
+}
+
+/* Respect prefers-reduced-motion: disable all animations */
+@media (prefers-reduced-motion: reduce) {
+  .uxl-accordion__summary {
+    transition: none;
+  }
+
+  .uxl-accordion__icon {
+    transition: none;
+  }
+
+  .uxl-accordion[data-open="true"] .uxl-accordion__icon {
+    transform: none;
+  }
+
+  .uxl-accordion__panel-wrapper {
+    transition: none;
+  }
+}
+
+.uxl-accordion__root {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.uxl-accordion__divider {
+  flex-shrink: 0;
+}

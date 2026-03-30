@@ -1,0 +1,69 @@
+/**
+ * HelperText - Elle Central Library
+ * Uses --uxl-mapped-component tokens only
+ */
+
+.uxl-helper-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.uxl-helper-text > .icon-component {
+  flex-shrink: 0;
+  font-size: 16px;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 16;
+}
+
+.uxl-helper-text > .icon-component.icon-filled {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 16;
+}
+
+.uxl-helper-text__text {
+  min-width: 0;
+}
+
+/* Neutral */
+.uxl-helper-text--neutral > .icon-component {
+  color: var(--uxl-mapped-component-helper-text-color-neutral-icon);
+}
+
+.uxl-helper-text--neutral .typography-text {
+  color: var(--uxl-mapped-component-helper-text-color-neutral-text);
+}
+
+/* Info */
+.uxl-helper-text--info > .icon-component {
+  color: var(--uxl-mapped-component-helper-text-color-info-icon);
+}
+
+.uxl-helper-text--info .typography-text {
+  color: var(--uxl-mapped-component-helper-text-color-info-text);
+}
+
+/* Danger */
+.uxl-helper-text--danger > .icon-component {
+  color: var(--uxl-mapped-component-helper-text-color-danger-icon);
+}
+
+.uxl-helper-text--danger .typography-text {
+  color: var(--uxl-mapped-component-helper-text-color-danger-text);
+}
+
+/* Warning */
+.uxl-helper-text--warning > .icon-component {
+  color: var(--uxl-mapped-component-helper-text-color-warning-icon);
+}
+
+.uxl-helper-text--warning .typography-text {
+  color: var(--uxl-mapped-component-helper-text-color-warning-text);
+}
+
+/* Success */
+.uxl-helper-text--success > .icon-component {
+  color: var(--uxl-mapped-component-helper-text-color-success-icon);
+}
+
+.uxl-helper-text--success .typography-text {
+  color: var(--uxl-mapped-component-helper-text-color-success-text);
+}

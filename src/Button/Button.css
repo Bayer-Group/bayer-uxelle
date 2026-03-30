@@ -1,0 +1,183 @@
+/**
+ * Button - Elle Central Library
+ * Uses --uxl-mapped-component tokens only
+ */
+
+.uxl-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--uxl-mapped-component-button-padding-medium-gap);
+  padding: var(--uxl-mapped-component-button-padding-medium-top-and-bottom)
+    var(--uxl-mapped-component-button-padding-medium-left-and-right);
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-size: var(--uxl-mapped-component-typography-font-size-button);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-button);
+  line-height: var(--uxl-mapped-component-typography-line-height-button);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-button);
+  border-radius: var(--uxl-mapped-component-button-radius-top-left)
+    var(--uxl-mapped-component-button-radius-top-right)
+    var(--uxl-mapped-component-button-radius-bottom-right)
+    var(--uxl-mapped-component-button-radius-bottom-left);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uxl-button {
+    transition: none;
+  }
+}
+
+.uxl-button:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+}
+
+.uxl-button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Color tokens: var(--uxl-color-switcher-X, var(--uxl-mapped-component-...)) so nearest [data-color-switcher] wins (Custom Property Stacks pattern) */
+/* Filled */
+.uxl-button--filled {
+  background-color: var(--uxl-color-switcher-button-fill, var(--uxl-mapped-component-button-color-fill));
+  border-color: var(--uxl-color-switcher-button-fill, var(--uxl-mapped-component-button-color-fill));
+  --uxl-icon-context-color: var(--uxl-color-switcher-button-text-on-fill, var(--uxl-mapped-component-button-color-text-on-fill));
+}
+
+.uxl-button.uxl-button--filled * {
+  color: var(--uxl-color-switcher-button-text-on-fill, var(--uxl-mapped-component-button-color-text-on-fill));
+}
+
+.uxl-button--filled:hover:not(:disabled) {
+  background-color: var(--uxl-color-switcher-state-button-hover-and-focus, var(--uxl-mapped-component-button-color-state-filled-hover-and-focus));
+  border-color: var(--uxl-color-switcher-state-button-hover-and-focus, var(--uxl-mapped-component-button-color-state-filled-hover-and-focus));
+}
+
+.uxl-button--filled:active:not(:disabled) {
+  background-color: var(--uxl-color-switcher-state-button-pressed-and-dragged, var(--uxl-mapped-component-button-color-state-filled-pressed-and-dragged));
+  border-color: var(--uxl-color-switcher-state-button-pressed-and-dragged, var(--uxl-mapped-component-button-color-state-filled-pressed-and-dragged));
+}
+
+.uxl-button--filled:disabled {
+  background-color: var(--uxl-color-switcher-state-button-disabled-fill-and-stroke, var(--uxl-mapped-component-button-color-state-filled-disabled-fill-and-stroke));
+  border-color: var(--uxl-color-switcher-state-button-disabled-fill-and-stroke, var(--uxl-mapped-component-button-color-state-filled-disabled-fill-and-stroke));
+  --uxl-icon-context-color: var(--uxl-color-switcher-state-disabled-text, var(--uxl-mapped-component-button-color-state-disabled-text));
+}
+
+.uxl-button.uxl-button--filled:disabled * {
+  color: var(--uxl-color-switcher-state-disabled-text, var(--uxl-mapped-component-button-color-state-disabled-text));
+}
+
+/* Outline */
+.uxl-button--outline {
+  background-color: transparent;
+  border-color: var(--uxl-color-switcher-button-stroke, var(--uxl-mapped-component-button-color-stroke));
+  --uxl-icon-context-color: var(--uxl-color-switcher-interactive-icon, var(--uxl-mapped-component-button-color-icon));
+}
+
+.uxl-button.uxl-button--outline * {
+  color: var(--uxl-color-switcher-interactive-icon, var(--uxl-mapped-component-button-color-icon));
+}
+
+.uxl-button--outline:hover:not(:disabled) {
+  background-color: var(--uxl-color-switcher-state-hover-and-focus, var(--uxl-mapped-component-button-color-state-hover-and-focus));
+  border-color: var(--uxl-color-switcher-button-stroke, var(--uxl-mapped-component-button-color-stroke));
+}
+
+.uxl-button--outline:active:not(:disabled) {
+  background-color: var(--uxl-color-switcher-state-pressed-and-dragged, var(--uxl-mapped-component-button-color-state-pressed-and-dragged));
+  border-color: var(--uxl-color-switcher-button-stroke, var(--uxl-mapped-component-button-color-stroke));
+}
+
+.uxl-button--outline:disabled {
+  background-color: transparent;
+  border-color: var(--uxl-color-switcher-state-button-disabled-fill-and-stroke, var(--uxl-mapped-component-button-color-state-filled-disabled-fill-and-stroke));
+  --uxl-icon-context-color: var(--uxl-color-switcher-state-disabled-text, var(--uxl-mapped-component-button-color-state-disabled-text));
+}
+
+.uxl-button.uxl-button--outline:disabled * {
+  color: var(--uxl-color-switcher-state-disabled-text, var(--uxl-mapped-component-button-color-state-disabled-text));
+}
+
+/* Text - same as outline but without the outline (transparent border) */
+.uxl-button--text {
+  background-color: transparent;
+  border-color: transparent;
+  --uxl-icon-context-color: var(--uxl-color-switcher-interactive-icon, var(--uxl-mapped-component-button-color-icon));
+}
+
+.uxl-button.uxl-button--text * {
+  color: var(--uxl-color-switcher-interactive-icon, var(--uxl-mapped-component-button-color-icon));
+}
+
+.uxl-button--text:hover:not(:disabled) {
+  background-color: var(--uxl-color-switcher-state-hover-and-focus, var(--uxl-mapped-component-button-color-state-hover-and-focus));
+  border-color: transparent;
+}
+
+.uxl-button--text:active:not(:disabled) {
+  background-color: var(--uxl-color-switcher-state-pressed-and-dragged, var(--uxl-mapped-component-button-color-state-pressed-and-dragged));
+  border-color: transparent;
+}
+
+.uxl-button--text:disabled {
+  background-color: transparent;
+  border-color: transparent;
+  --uxl-icon-context-color: var(--uxl-color-switcher-state-disabled-text, var(--uxl-mapped-component-button-color-state-disabled-text));
+}
+
+.uxl-button.uxl-button--text:disabled * {
+  color: var(--uxl-color-switcher-state-disabled-text, var(--uxl-mapped-component-button-color-state-disabled-text));
+}
+
+/* Size variants */
+.uxl-button--small {
+  gap: var(--uxl-mapped-component-button-padding-small-gap);
+  padding: var(--uxl-mapped-component-button-padding-small-top-and-bottom)
+    var(--uxl-mapped-component-button-padding-small-left-and-right);
+}
+
+.uxl-button--small .typography-container {
+  padding-left: var(--uxl-mapped-component-button-padding-inner-left-and-right);
+  padding-right: var(--uxl-mapped-component-button-padding-inner-left-and-right);
+}
+
+.uxl-button--large {
+  gap: var(--uxl-mapped-component-button-padding-large-gap);
+  padding: var(--uxl-mapped-component-button-padding-large-top-and-bottom)
+    var(--uxl-mapped-component-button-padding-large-left-and-right);
+}
+
+.uxl-button--large .typography-container {
+  padding-left: var(--uxl-mapped-component-button-padding-inner-left-and-right);
+  padding-right: var(--uxl-mapped-component-button-padding-inner-left-and-right);
+}
+
+/* Typography within button: Figma Padding/Left and Right, Height/Typography Min Height */
+.uxl-button .typography-container {
+  padding-left: var(--uxl-mapped-component-button-padding-inner-left-and-right);
+  padding-right: var(--uxl-mapped-component-button-padding-inner-left-and-right);
+  min-height: var(--uxl-mapped-component-button-height-typography-min-height);
+  align-items: center;
+}
+
+/* Icon: Material Symbols font, color set per variant above */
+.uxl-button__icon {
+  flex-shrink: 0;
+  font-family: "Material Symbols Sharp";
+  font-size: var(--uxl-mapped-component-button-height-icon-size);
+  width: 1em;
+  height: 1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uxl-button__icon .icon-component {
+  font-size: 1em;
+}

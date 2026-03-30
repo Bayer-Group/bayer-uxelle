@@ -1,0 +1,236 @@
+/**
+ * Switch — uses --uxl-mapped-component-switch-* and color-switcher stacks (see Button).
+ */
+
+.uxl-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-width: 48px;
+  min-height: calc(24px + 2 * var(--uxl-mapped-component-switch-padding));
+  cursor: pointer;
+  box-sizing: border-box;
+  outline: none;
+  --uxl-switch-focus-ring-color: var(
+    --uxl-color-switcher-button-stroke,
+    var(--uxl-mapped-component-switch-color-stroke)
+  );
+}
+
+/* Track is absolutely positioned (Figma); reserve horizontal space for label */
+.uxl-switch:has(.uxl-switch__label) {
+  padding-left: calc(48px + var(--uxl-mapped-component-switch-gap));
+}
+
+.uxl-switch--disabled {
+  cursor: not-allowed;
+}
+
+/* Visually hidden; remains focusable and announced as switch */
+.uxl-switch__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.uxl-switch__track {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 24px;
+  border-radius: var(--uxl-mapped-component-switch-border-radius);
+  border: 2px solid
+    var(--uxl-color-switcher-button-stroke, var(--uxl-mapped-component-switch-color-stroke));
+  background-color: var(
+    --uxl-color-switcher-background,
+    var(--uxl-mapped-component-icon-button-medium-background)
+  );
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.uxl-switch__input:focus-visible + .uxl-switch__track {
+  outline: 2px solid;
+  outline-offset: 2px;
+  outline-color: var(--uxl-switch-focus-ring-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uxl-switch__track,
+  .uxl-switch__thumb {
+    transition: none;
+  }
+}
+
+/* Unchecked — hover / active */
+.uxl-switch:hover
+  .uxl-switch__input:not(:disabled):not(:checked)
+  + .uxl-switch__track {
+  background-color: var(
+    --uxl-color-switcher-state-hover-and-focus,
+    var(--uxl-mapped-component-switch-color-state-hover-and-focus)
+  );
+}
+
+.uxl-switch:active
+  .uxl-switch__input:not(:disabled):not(:checked)
+  + .uxl-switch__track {
+  background-color: var(
+    --uxl-color-switcher-state-pressed-and-dragged,
+    var(--uxl-mapped-component-switch-color-state-pressed-and-dragged)
+  );
+}
+
+/* Checked */
+.uxl-switch__input:checked + .uxl-switch__track {
+  background-color: var(
+    --uxl-color-switcher-button-fill,
+    var(--uxl-mapped-component-switch-color-fill)
+  );
+  border-color: var(
+    --uxl-color-switcher-button-fill,
+    var(--uxl-mapped-component-switch-color-fill)
+  );
+}
+
+.uxl-switch:hover
+  .uxl-switch__input:not(:disabled):checked
+  + .uxl-switch__track {
+  background-color: var(
+    --uxl-color-switcher-state-button-hover-and-focus,
+    var(--uxl-mapped-component-switch-color-state-filled-hover-and-focus)
+  );
+  border-color: var(
+    --uxl-color-switcher-state-button-hover-and-focus,
+    var(--uxl-mapped-component-switch-color-state-filled-hover-and-focus)
+  );
+}
+
+.uxl-switch:active
+  .uxl-switch__input:not(:disabled):checked
+  + .uxl-switch__track {
+  background-color: var(
+    --uxl-color-switcher-state-button-pressed-and-dragged,
+    var(--uxl-mapped-component-switch-color-state-filled-pressed-and-dragged)
+  );
+  border-color: var(
+    --uxl-color-switcher-state-button-pressed-and-dragged,
+    var(--uxl-mapped-component-switch-color-state-filled-pressed-and-dragged)
+  );
+}
+
+/* Disabled */
+.uxl-switch__input:disabled + .uxl-switch__track {
+  background-color: var(--uxl-mapped-component-switch-color-state-filled-disabled-text);
+  border-color: var(
+    --uxl-mapped-component-switch-color-state-filled-disabled-fill-and-stroke
+  );
+}
+
+/* Thumb: circle + fill only (inset 4px in 48×24 track; 16×16 knob) */
+.uxl-switch__thumb {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(
+    --uxl-color-switcher-interactive-icon,
+    var(--uxl-mapped-component-switch-color-icon)
+  );
+  transition:
+    left 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.uxl-switch__input:checked + .uxl-switch__track .uxl-switch__thumb {
+  top: 2px;
+  left: 26px;
+  width: 16px;
+  height: 16px;
+  background-color: var(
+    --uxl-color-switcher-button-text-on-fill,
+    var(--uxl-mapped-component-switch-color-text-on-fill)
+  );
+}
+
+.uxl-switch__input:disabled + .uxl-switch__track .uxl-switch__thumb {
+  background-color: var(
+    --uxl-mapped-component-switch-color-state-filled-disabled-fill-and-stroke
+  );
+}
+
+.uxl-switch__label {
+  min-width: 0;
+}
+
+.uxl-switch__label .typography-text {
+  color: inherit;
+}
+
+.uxl-switch--disabled .uxl-switch__label {
+  color: var(
+    --uxl-color-switcher-state-disabled-text,
+    var(--uxl-mapped-component-switch-color-state-disabled-text)
+  );
+}
+
+/* Embedded: sits inside an interactive parent (e.g. list row); no switch-level affordances */
+.uxl-switch[data-uxl-switch-embedded] {
+  cursor: default;
+  padding-left: 0;
+  min-height: 24px;
+}
+
+.uxl-switch[data-uxl-switch-embedded] .uxl-switch__label {
+  display: none;
+}
+
+.uxl-switch[data-uxl-switch-embedded] .uxl-switch__input:focus-visible + .uxl-switch__track {
+  outline: none;
+}
+
+/* Keep unchecked / checked fills static (no hover or pressed tint) */
+.uxl-switch[data-uxl-switch-embedded]:hover
+  .uxl-switch__input:not(:disabled):not(:checked)
+  + .uxl-switch__track,
+.uxl-switch[data-uxl-switch-embedded]:active
+  .uxl-switch__input:not(:disabled):not(:checked)
+  + .uxl-switch__track {
+  background-color: var(
+    --uxl-color-switcher-background,
+    var(--uxl-mapped-component-icon-button-medium-background)
+  );
+  border-color: var(
+    --uxl-color-switcher-button-stroke,
+    var(--uxl-mapped-component-switch-color-stroke)
+  );
+}
+
+.uxl-switch[data-uxl-switch-embedded]:hover
+  .uxl-switch__input:not(:disabled):checked
+  + .uxl-switch__track,
+.uxl-switch[data-uxl-switch-embedded]:active
+  .uxl-switch__input:not(:disabled):checked
+  + .uxl-switch__track {
+  background-color: var(
+    --uxl-color-switcher-button-fill,
+    var(--uxl-mapped-component-switch-color-fill)
+  );
+  border-color: var(
+    --uxl-color-switcher-button-fill,
+    var(--uxl-mapped-component-switch-color-fill)
+  );
+}

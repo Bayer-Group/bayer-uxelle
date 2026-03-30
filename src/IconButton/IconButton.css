@@ -1,0 +1,157 @@
+/**
+ * Icon Button - Elle Central Library
+ * Uses --uxl-mapped-component-icon-button tokens only
+ */
+
+.uxl-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--uxl-mapped-component-icon-button-min-width-height);
+  min-height: var(--uxl-mapped-component-icon-button-min-width-height);
+  padding: var(--uxl-mapped-component-button-padding-medium-top-and-bottom);
+  border-radius: var(--uxl-mapped-component-icon-button-border-radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uxl-icon-button {
+    transition: none;
+  }
+}
+
+.uxl-icon-button:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+}
+
+.uxl-icon-button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* High (filled) */
+.uxl-icon-button--filled {
+  background-color: var(--uxl-mapped-component-icon-button-high-background);
+  border-color: var(--uxl-mapped-component-icon-button-high-background);
+  --uxl-icon-context-color: var(--uxl-mapped-component-icon-button-high-icon);
+}
+
+.uxl-icon-button.uxl-icon-button--filled * {
+  color: var(--uxl-mapped-component-icon-button-high-icon);
+}
+
+.uxl-icon-button--filled:hover:not(:disabled) {
+  background-color: var(--uxl-mapped-component-icon-button-high-state-hover-and-focus);
+  border-color: var(--uxl-mapped-component-icon-button-high-state-hover-and-focus);
+}
+
+.uxl-icon-button--filled:active:not(:disabled) {
+  background-color: var(--uxl-mapped-component-button-color-state-filled-pressed-and-dragged);
+  border-color: var(--uxl-mapped-component-button-color-state-filled-pressed-and-dragged);
+}
+
+.uxl-icon-button--filled:disabled {
+  background-color: var(--uxl-mapped-component-icon-button-disabled-background);
+  border-color: var(--uxl-mapped-component-icon-button-disabled-background);
+  --uxl-icon-context-color: var(--uxl-mapped-component-icon-button-disabled-icon);
+}
+
+.uxl-icon-button.uxl-icon-button--filled:disabled * {
+  color: var(--uxl-mapped-component-icon-button-disabled-icon);
+}
+
+/* Medium (outline) */
+.uxl-icon-button--outline {
+  background-color: var(--uxl-mapped-component-icon-button-medium-background);
+  border-color: var(--uxl-mapped-component-icon-button-medium-outline);
+  --uxl-icon-context-color: var(--uxl-mapped-component-icon-button-medium-icon);
+}
+
+.uxl-icon-button.uxl-icon-button--outline * {
+  color: var(--uxl-mapped-component-icon-button-medium-icon);
+}
+
+.uxl-icon-button--outline:hover:not(:disabled) {
+  background-color: var(--uxl-mapped-component-icon-button-medium-state-hover-and-focus);
+  border-color: var(--uxl-mapped-component-icon-button-medium-outline);
+}
+
+.uxl-icon-button--outline:active:not(:disabled) {
+  background-color: var(--uxl-mapped-component-button-color-state-pressed-and-dragged);
+  border-color: var(--uxl-mapped-component-icon-button-medium-outline);
+}
+
+.uxl-icon-button--outline:disabled {
+  background-color: var(--uxl-mapped-component-icon-button-medium-background);
+  border-color: var(--uxl-mapped-component-button-color-state-filled-disabled-fill-and-stroke);
+  --uxl-icon-context-color: var(--uxl-mapped-component-icon-button-disabled-icon);
+}
+
+.uxl-icon-button.uxl-icon-button--outline:disabled * {
+  color: var(--uxl-mapped-component-icon-button-disabled-icon);
+}
+
+/* Low (text) */
+.uxl-icon-button--text {
+  background-color: var(--uxl-mapped-component-icon-button-low-background);
+  border-color: transparent;
+  --uxl-icon-context-color: var(--uxl-mapped-component-icon-button-low-icon);
+}
+
+.uxl-icon-button.uxl-icon-button--text * {
+  color: var(--uxl-mapped-component-icon-button-low-icon);
+}
+
+.uxl-icon-button--text:hover:not(:disabled) {
+  background-color: var(--uxl-mapped-component-icon-button-low-state-hover-and-focus);
+  border-color: transparent;
+}
+
+.uxl-icon-button--text:active:not(:disabled) {
+  background-color: var(--uxl-mapped-component-button-color-state-pressed-and-dragged);
+  border-color: transparent;
+}
+
+.uxl-icon-button--text:disabled {
+  background-color: transparent;
+  border-color: transparent;
+  --uxl-icon-context-color: var(--uxl-mapped-component-icon-button-disabled-icon);
+}
+
+.uxl-icon-button.uxl-icon-button--text:disabled * {
+  color: var(--uxl-mapped-component-icon-button-disabled-icon);
+}
+
+/* Size variants */
+.uxl-icon-button--small {
+  padding: var(--uxl-mapped-component-button-padding-small-top-and-bottom);
+}
+
+.uxl-icon-button--medium {
+  padding: 0;
+  --uxl-icon-button-icon-size: 24px;
+}
+
+.uxl-icon-button--large {
+  padding: var(--uxl-mapped-component-icon-button-padding-large);
+}
+
+/* Icon: Material Symbols font, color set per variant above */
+.uxl-icon-button__icon {
+  flex-shrink: 0;
+  font-family: "Material Symbols Sharp";
+  font-size: var(--uxl-icon-button-icon-size, var(--uxl-mapped-component-button-height-icon-size));
+  width: 1em;
+  height: 1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uxl-icon-button__icon .icon-component {
+  font-size: 1em;
+}

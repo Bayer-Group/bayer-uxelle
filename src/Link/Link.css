@@ -1,0 +1,60 @@
+/**
+ * Link - Elle Central Library
+ * Uses --uxl-mapped-component tokens only
+ * For individual links outside navigation (CTAs, external links, cards).
+ * Underline applies only to typography (text), not the icon.
+ */
+
+.uxl-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--uxl-mapped-component-link-color);
+  cursor: pointer;
+  outline: none;
+}
+
+.uxl-link__text {
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: var(--uxl-mapped-component-link-underline-offset-percentage);
+  text-decoration-thickness: var(--uxl-mapped-component-link-underline-thickness-percent);
+  text-decoration-skip-ink: auto;
+  transition: text-decoration-thickness 0.15s ease;
+}
+
+.uxl-link__text p {
+  color: var(--uxl-mapped-component-link-color);
+}
+
+.uxl-link:hover .uxl-link__text {
+  text-decoration-thickness: var(--uxl-mapped-component-link-underline-thickness-percent-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uxl-link__text {
+    transition: none;
+  }
+}
+
+.uxl-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.uxl-link__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--uxl-mapped-component-link-icon-size);
+  --uxl-icon-context-color: var(--uxl-mapped-component-link-color);
+}
+
+.uxl-link__icon span {
+  color: var(--uxl-mapped-component-link-color);
+}
+
+.uxl-link__icon .icon-component {
+  font-size: var(--uxl-mapped-component-link-icon-size);
+}

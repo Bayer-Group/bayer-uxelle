@@ -1,0 +1,11 @@
+/**
+ * AccordionGroup - Elle Central Library
+ * Uses --uxl-mapped-component tokens only
+ */
+
+.uxl-accordion-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}

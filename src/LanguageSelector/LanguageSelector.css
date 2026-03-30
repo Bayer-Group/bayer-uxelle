@@ -1,0 +1,11 @@
+/**
+ * LanguageSelector - Elle Central Library
+ * Uses --uxl-mapped-component tokens only
+ */
+
+.uxl-language-selector {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: fit-content;
+}

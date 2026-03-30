@@ -1,0 +1,69 @@
+/**
+ * LanguageSelectorButton - Elle Central Library
+ * Uses only language-selector design spec variables:
+ * - --uxl-mapped-component-language-selector-spacing-gap
+ * - --uxl-mapped-component-language-selector-color-state-hover-and-focus
+ * - --uxl-mapped-component-language-selector-color-state-pressed-and-dragged
+ * - --uxl-mapped-component-language-selector-color-state-activated
+ */
+
+.uxl-language-selector-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--uxl-mapped-component-language-selector-spacing-gap);
+  padding-top: var(--uxl-mapped-component-language-selector-spacing-vertical);
+  padding-bottom: var(--uxl-mapped-component-language-selector-spacing-vertical);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  outline: none;
+}
+
+.uxl-language-selector-button * {
+  color: inherit;
+}
+
+.uxl-language-selector-button:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+}
+
+.uxl-language-selector-button:hover:not(:disabled) {
+  background-color: var(--uxl-mapped-component-language-selector-color-state-hover-and-focus);
+}
+
+.uxl-language-selector-button:active:not(:disabled) {
+  background-color: var(--uxl-mapped-component-language-selector-color-state-pressed-and-dragged);
+}
+
+.uxl-language-selector-button--open {
+  background-color: var(--uxl-mapped-component-language-selector-color-state-activated);
+}
+
+.uxl-language-selector-button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uxl-language-selector-button {
+    transition: none;
+  }
+}
+
+.uxl-language-selector-button__icon {
+  flex-shrink: 0;
+  font-family: "Material Symbols Sharp";
+  font-size: 1em;
+  width: 1em;
+  height: 1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uxl-language-selector-button__icon .icon-component {
+  font-size: 1em;
+}

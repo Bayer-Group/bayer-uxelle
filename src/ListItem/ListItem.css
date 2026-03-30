@@ -1,0 +1,130 @@
+/**
+ * ListItem - Elle Central Library
+ * Uses --uxl-mapped-component tokens only
+ */
+
+/* Base: default colors when interactive=false */
+.uxl-list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--uxl-mapped-component-listitem-padding-gap);
+  padding: var(--uxl-mapped-component-listitem-padding-vertical)
+    var(--uxl-mapped-component-listitem-padding-horizontal);
+  width: 100%;
+  position: relative;
+  background: transparent;
+  border: none;
+  font: inherit;
+  color: var(--uxl-mapped-component-label-color-text);
+  text-align: left;
+  cursor: default;
+  --uxl-icon-context-color: var(--uxl-mapped-component-icon-color);
+}
+
+.uxl-list-item * {
+  color: inherit;
+}
+
+/* Icon uses context color; overrides * so it doesn't inherit text color. Same color for interactive and non-interactive per Figma spec. */
+.uxl-list-item .icon-component {
+  color: var(--uxl-icon-context-color);
+}
+
+/* Interactive: override with interactive colors */
+.uxl-list-item.uxl-list-item--interactive {
+  cursor: pointer;
+  color: var(--uxl-mapped-component-listitem-color-text);
+  --uxl-icon-context-color: var(--uxl-mapped-component-listitem-color-icon);
+}
+
+.uxl-list-item.uxl-list-item--interactive:hover:not(.uxl-list-item--disabled) {
+  background-color: var(--uxl-mapped-component-listitem-color-state-filled-hover-and-focus);
+}
+
+.uxl-list-item.uxl-list-item--interactive:active:not(.uxl-list-item--disabled) {
+  background-color: var(--uxl-mapped-component-listitem-color-state-filled-pressed-and-dragged);
+}
+
+.uxl-list-item.uxl-list-item--interactive:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* State overrides for design demos (Storybook) — only when interactive */
+.uxl-list-item.uxl-list-item--interactive.uxl-list-item--active {
+  background-color: var(--uxl-mapped-component-listitem-color-state-filled-activated);
+}
+
+.uxl-list-item.uxl-list-item--interactive.uxl-list-item--hover {
+  background-color: var(--uxl-mapped-component-listitem-color-state-filled-hover-and-focus);
+}
+
+.uxl-list-item.uxl-list-item--interactive.uxl-list-item--clicked {
+  background-color: var(--uxl-mapped-component-listitem-color-state-filled-pressed-and-dragged);
+}
+
+.uxl-list-item.uxl-list-item--disabled {
+  background-color: var(--uxl-mapped-component-listitem-color-state-filled-disabled-fill-and-stroke);
+  color: var(--uxl-mapped-component-listitem-color-state-disabled-text);
+  cursor: not-allowed;
+  pointer-events: none;
+  --uxl-icon-context-color: var(--uxl-mapped-component-listitem-color-state-disabled-text);
+}
+
+.uxl-list-item.uxl-list-item--disabled * {
+  color: var(--uxl-mapped-component-listitem-color-state-disabled-text);
+}
+
+/* Semantic li wrapper: full-width so interactive button stretches */
+.uxl-list-item__li {
+  display: flex;
+  width: 100%;
+  list-style: none;
+}
+
+.uxl-list-item__li > button,
+.uxl-list-item__li > a {
+  width: 100%;
+}
+
+.uxl-list-item__li > a {
+  text-decoration: none;
+}
+
+.uxl-list-item__slot {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Leading/trailing slots: hug content (Figma-style) — size to icon's native 24×24 */
+.uxl-list-item__slot--leading,
+.uxl-list-item__slot--trailing {
+  align-self: center;
+  width: fit-content;
+  height: fit-content;
+}
+
+/* Icon wrapper: hug content — no extra space around the 24×24 icon */
+.uxl-list-item__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: fit-content;
+  height: fit-content;
+}
+
+.uxl-list-item__slot--center {
+  flex: 1 0 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--uxl-mapped-component-listitem-inner-padding-gap);
+}
+
+.uxl-list-item__divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

@@ -1,0 +1,39 @@
+/**
+ * Label - Elle Central Library
+ * Uses --uxl-mapped-component tokens only
+ */
+
+.uxl-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  cursor: default;
+}
+
+.uxl-label__content {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  line-height: 0;
+  min-width: 0; /* Allow truncation when label is in constrained flex layout */
+}
+
+.uxl-label__asterisk {
+  color: var(--uxl-mapped-component-label-color-danger-asterisk);
+  flex-shrink: 0;
+}
+
+.uxl-label__asterisk .typography-text {
+  color: inherit;
+}
+
+/* Default: label text uses body color */
+.uxl-label .uxl-label__content .typography-text {
+  color: var(--uxl-mapped-component-typography-color-body);
+}
+
+/* Disabled: muted text and asterisk */
+.uxl-label--disabled .uxl-label__content .typography-text,
+.uxl-label--disabled .uxl-label__asterisk {
+  color: var(--uxl-mapped-component-listitem-color-state-disabled-text);
+}

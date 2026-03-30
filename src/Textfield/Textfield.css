@@ -1,0 +1,248 @@
+/**
+ * Textfield — uses --uxl-mapped-component-textfield-* tokens.
+ * Color tokens use var(--uxl-color-switcher-*, var(--uxl-mapped-component-...)) so the nearest
+ * [data-color-switcher] on the field wins; inherited mapped tokens are already resolved colors
+ * from the theme root and would ignore a local data-color-switcher. Same pattern as Button.css.
+ */
+
+.uxl-textfield {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--uxl-mapped-component-textfield-spacing-outer-gap);
+  width: 100%;
+}
+
+.uxl-textfield__field {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--uxl-mapped-component-textfield-spacing-inner-gap);
+  min-height: var(--uxl-mapped-component-textfield-spacing-height);
+  padding-left: var(--uxl-mapped-component-textfield-spacing-horizontal);
+  padding-right: var(--uxl-mapped-component-textfield-spacing-horizontal);
+  border-radius: var(--uxl-mapped-component-textfield-border-radius);
+  background-color: var(
+    --uxl-color-switcher-background,
+    var(--uxl-mapped-component-textfield-color-background)
+  );
+  border: none;
+}
+
+.uxl-textfield:not(.uxl-textfield--disabled) .uxl-textfield__field {
+  cursor: text;
+}
+
+/* Stroke on ::after keeps layout stable when token border widths differ by state. */
+.uxl-textfield__field::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  box-sizing: border-box;
+  border-radius: inherit;
+  border-style: solid;
+  pointer-events: none;
+}
+
+/* Side regions — same slot pattern as ListItem (`uxl-list-item__slot--*`). */
+.uxl-textfield__slot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: fit-content;
+  height: fit-content;
+}
+
+/* Trailing control (e.g. password visibility IconButton) — keeps hit target aligned in the field row */
+.uxl-textfield__slot--action {
+  margin-right: calc(var(--uxl-mapped-component-textfield-spacing-horizontal) * -0.25);
+}
+
+/* Scrolls horizontally when the value is wider than the field (Figma input content frame). */
+.uxl-textfield__input-scroll {
+  flex: 1 1 0;
+  min-width: 0;
+  align-self: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Percent min-height resolves against the stretched flex item (field row). */
+  min-height: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .uxl-textfield__input-scroll:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+
+.uxl-textfield__input-scroll > .uxl-textfield__input-typography {
+  box-sizing: border-box;
+  min-width: 100%;
+  min-height: 100%;
+  width: max-content;
+  max-width: none;
+  align-self: stretch;
+  /* Override .typography-container align-items: flex-start — vertically center the input column. */
+  align-items: center;
+}
+
+.uxl-textfield__input-scroll .typography-container-width-auto,
+.uxl-textfield__input-scroll .typography-container-width-full {
+  min-width: 100%;
+  width: max-content;
+  max-width: none;
+}
+
+.uxl-textfield__input-scroll .typography-text-container {
+  flex: 1 1 auto;
+  align-self: stretch;
+  min-height: 0;
+  min-width: 0;
+  justify-content: center;
+}
+
+.uxl-textfield__input-scroll .typography-text-container-width-auto,
+.uxl-textfield__input-scroll .typography-text-container-width-full {
+  min-width: 100%;
+  width: max-content;
+  max-width: none;
+}
+
+.uxl-textfield__input {
+  position: relative;
+  z-index: 1;
+  display: block;
+  box-sizing: border-box;
+  min-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  field-sizing: content;
+}
+
+@supports not (field-sizing: content) {
+  .uxl-textfield__input {
+    field-sizing: initial;
+  }
+}
+
+/* Explicit stack + higher specificity than common `input { color: inherit }` resets so typed
+ * text follows the field’s [data-color-switcher], not Storybook root / parent canvas color. */
+.uxl-textfield:not(.uxl-textfield--disabled) .uxl-textfield__field .uxl-textfield__input {
+  color: var(
+    --uxl-color-switcher-text,
+    var(--uxl-mapped-component-typography-color-body)
+  );
+}
+
+.uxl-textfield__input::placeholder {
+  color: var(
+    --uxl-color-switcher-stroke,
+    var(--uxl-mapped-component-textfield-color-placeholder)
+  );
+}
+
+.uxl-textfield__input:disabled {
+  cursor: not-allowed;
+}
+
+.uxl-textfield--read-only .uxl-textfield__input {
+  cursor: default;
+}
+
+.uxl-textfield--disabled .uxl-textfield__field {
+  cursor: not-allowed;
+  background-color: var(
+    --uxl-color-switcher-state-button-disabled-fill-and-stroke,
+    var(--uxl-mapped-component-textfield-color-state-disabled-background)
+  );
+}
+
+.uxl-textfield--disabled .uxl-textfield__field::after {
+  border-width: var(--uxl-mapped-component-textfield-color-state-disabled-border-width);
+  border-color: var(
+    --uxl-color-switcher-interactive-text,
+    var(--uxl-mapped-component-textfield-color-state-disabled-stroke)
+  );
+}
+
+.uxl-textfield--disabled .uxl-textfield__input {
+  color: var(
+    --uxl-color-switcher-state-button-disabled-fill-and-stroke,
+    var(--uxl-mapped-component-textfield-color-state-disabled-text)
+  );
+}
+
+.uxl-textfield--read-only:not(.uxl-textfield--disabled) .uxl-textfield__field {
+  background-color: var(
+    --uxl-color-switcher-state-button-disabled-fill-and-stroke,
+    var(--uxl-mapped-component-textfield-color-state-read-only-background)
+  );
+}
+
+.uxl-textfield--read-only:not(.uxl-textfield--disabled) .uxl-textfield__field::after {
+  border-width: var(--uxl-mapped-component-textfield-color-state-read-only-border-width);
+  border-color: var(
+    --uxl-color-switcher-interactive-text,
+    var(--uxl-mapped-component-textfield-color-state-read-only-stroke)
+  );
+}
+
+.uxl-textfield:not(.uxl-textfield--disabled):not(.uxl-textfield--read-only)
+  .uxl-textfield__field::after {
+  border-width: var(--uxl-mapped-component-textfield-color-state-enabled-border-width);
+  border-color: var(
+    --uxl-color-switcher-stroke,
+    var(--uxl-mapped-component-textfield-color-state-enabled-stroke)
+  );
+}
+
+.uxl-textfield:not(.uxl-textfield--disabled):not(.uxl-textfield--read-only)
+  .uxl-textfield__field:hover::after {
+  border-width: var(--uxl-mapped-component-textfield-color-state-hover-border-width);
+  border-color: var(
+    --uxl-color-switcher-stroke,
+    var(--uxl-mapped-component-textfield-color-state-hover-stroke)
+  );
+}
+
+.uxl-textfield:not(.uxl-textfield--disabled):not(.uxl-textfield--read-only)
+  .uxl-textfield__field:focus-within::after {
+  border-width: var(--uxl-mapped-component-textfield-color-state-focus-border-width);
+  border-color: var(
+    --uxl-color-switcher-interactive-text,
+    var(--uxl-mapped-component-textfield-color-state-focus-stroke)
+  );
+}
+
+.uxl-textfield--disabled .uxl-textfield__field:focus-within::after {
+  border-width: var(--uxl-mapped-component-textfield-color-state-disabled-border-width);
+  border-color: var(
+    --uxl-color-switcher-interactive-text,
+    var(--uxl-mapped-component-textfield-color-state-disabled-stroke)
+  );
+}
+
+.uxl-textfield--read-only:not(.uxl-textfield--disabled) .uxl-textfield__field:focus-within::after {
+  border-width: var(--uxl-mapped-component-textfield-color-state-read-only-border-width);
+  border-color: var(
+    --uxl-color-switcher-interactive-text,
+    var(--uxl-mapped-component-textfield-color-state-read-only-stroke)
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uxl-textfield__field,
+  .uxl-textfield__field::after {
+    transition: none;
+  }
+}

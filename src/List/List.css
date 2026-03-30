@@ -1,0 +1,18 @@
+/**
+ * List - Elle Central Library
+ * Uses --uxl-mapped-component tokens only (via ListItem)
+ */
+
+.uxl-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.uxl-list--vertical-padding {
+  padding-block: var(--uxl-mapped-component-list-padding-vertical, 8px);
+}

@@ -1,0 +1,170 @@
+/* Footer – two-tier layout. Top: main content + legal. Bottom: branding + legal. */
+
+.uxl-footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Top section – [data-color-switcher] on Footer.tsx (secondary) drives palette via --uxl-color-switcher-* */
+.uxl-footer__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--uxl-mapped-component-footer-top-spacing-gap);
+  width: 100%;
+  padding: var(--uxl-mapped-component-footer-top-spacing-vertical-padding)
+    var(--uxl-mapped-component-footer-top-spacing-horizontal-padding);
+  background: var(
+    --uxl-color-switcher-background,
+    var(--uxl-mapped-component-footer-top-color-background)
+  );
+  color: var(
+    --uxl-color-switcher-text,
+    var(--uxl-mapped-component-footer-top-color-foreground)
+  );
+  --uxl-icon-context-color: var(
+    --uxl-color-switcher-interactive-icon,
+    var(--uxl-mapped-component-footer-top-color-interactive-foreground)
+  );
+}
+
+.uxl-footer__top-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--uxl-mapped-theme-layout-spacing-small-4);
+  width: 100%;
+  max-width: var(--uxl-mapped-component-navigation-max-width);
+}
+
+.uxl-footer__top-legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--uxl-mapped-component-navigation-max-width);
+  color: var(
+    --uxl-color-switcher-text,
+    var(--uxl-mapped-component-footer-top-color-foreground)
+  );
+}
+
+/* Default top main content – two columns + social icons */
+.uxl-footer__top-main-default {
+  display: flex;
+  flex-direction: column;
+  gap: var(--uxl-mapped-theme-layout-spacing-medium-10);
+  width: 100%;
+}
+
+.uxl-footer__top-main-columns {
+  display: flex;
+  gap: var(--uxl-mapped-theme-layout-spacing-small-4);
+  width: 100%;
+}
+
+.uxl-footer__top-main-column {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: var(--uxl-mapped-theme-layout-spacing-medium-10);
+  min-width: 0;
+  max-width: 1070px;
+}
+
+.uxl-footer__top-main-column .uxl-button {
+  align-self: flex-start; /* Hug content instead of stretching to full column width */
+}
+
+.uxl-footer__top-main-column a {
+  align-self: flex-start;
+  color: var(--uxl-mapped-component-link-color);
+  text-decoration: underline;
+  text-underline-offset: calc(1em * var(--uxl-mapped-component-link-underline-offset-percentage) / 100);
+}
+
+.uxl-footer__top-main-column a:hover {
+  text-decoration-thickness: calc(1em * var(--uxl-mapped-component-link-underline-thickness-percent-hover) / 100);
+}
+
+/* Social icons row – centered */
+.uxl-footer__social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--uxl-mapped-theme-layout-spacing-small-4);
+  width: 100%;
+}
+
+.uxl-footer__social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--uxl-mapped-component-link-icon);
+  text-decoration: none;
+}
+
+.uxl-footer__social-icon:hover {
+  opacity: 0.8;
+}
+
+.uxl-footer__social-icon svg {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+/* Bottom section – neutral band; mapped tokens only (top uses [data-color-switcher]) */
+.uxl-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--uxl-mapped-component-footer-bottom-spacing-gap);
+  width: 100%;
+  padding: var(--uxl-mapped-component-footer-bottom-spacing-vertical-padding)
+    var(--uxl-mapped-component-footer-bottom-spacing-horizontal-padding);
+  background: var(--uxl-mapped-component-footer-bottom-color-background);
+  color: var(--uxl-mapped-component-footer-bottom-color-foreground);
+  --uxl-icon-context-color: var(--uxl-mapped-component-footer-bottom-color-interactive-foreground);
+}
+
+.uxl-footer__bottom-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--uxl-mapped-component-navigation-max-width);
+}
+
+.uxl-footer__bottom-legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--uxl-mapped-component-navigation-max-width);
+  color: var(--uxl-mapped-component-footer-bottom-color-foreground);
+}
+
+/* Default bottom main – logo + tagline */
+.uxl-footer__bottom-main-default {
+  display: flex;
+  align-items: center;
+  gap: var(--uxl-mapped-theme-layout-spacing-micro-2);
+}
+
+.uxl-footer__bottom-main-default .typography-color-body {
+  color: var(--uxl-mapped-component-footer-bottom-color-foreground);
+}
+
+.uxl-footer__bottom-legal .typography-color-body {
+  color: var(--uxl-mapped-component-footer-bottom-color-foreground);
+}
+
+.uxl-footer__logo {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}

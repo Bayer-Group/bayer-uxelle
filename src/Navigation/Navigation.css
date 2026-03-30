@@ -1,0 +1,168 @@
+/* Navigation – two-tier nav bar. Matches Figma spec (node 8156:8451). */
+/* Primary Nav: h=64px, Secondary Nav: h=46px, slots: p=8px (micro-2), gap=8px, max-width=1120px */
+
+.uxl-navigation {
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  width: 100%;
+}
+
+/* Primary Nav – no padding; inner Div contains the three slots */
+.uxl-navigation__primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: 100%;
+  background: var(--uxl-mapped-component-navigation-primary-nav-color-background);
+  color: var(--uxl-mapped-component-navigation-primary-nav-color-foreground);
+  --uxl-icon-context-color: var(--uxl-mapped-component-navigation-primary-nav-color-interactive-foreground);
+  z-index: 2;
+}
+
+/* Inner container – max-width 1120px, flex row with three slots */
+.uxl-navigation__inner {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  height: 100%;
+  min-width: 0;
+  max-width: var(--uxl-mapped-component-navigation-max-width);
+}
+
+/* Leading Slot – p=8px, gap=8px, shrink-0. Typography with truncation needs min-width: 0 to shrink. */
+.uxl-navigation__leading {
+  display: flex;
+  align-items: center;
+  gap: var(--uxl-mapped-theme-layout-spacing-micro-2);
+  height: 100%;
+  padding: var(--uxl-mapped-theme-layout-spacing-micro-2);
+  flex-shrink: 0;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.uxl-navigation__leading .typography-container {
+  min-width: 0;
+}
+
+/* Type lockup – two-line typography next to logo (Condensed Alt + Condensed) */
+.uxl-navigation__type-lockup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  min-width: 0;
+}
+
+/* Center Slot – p=8px, gap=8px, flex-1, row layout */
+.uxl-navigation__center {
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 0;
+  align-items: center;
+  gap: var(--uxl-mapped-theme-layout-spacing-micro-2);
+  height: 100%;
+  min-width: 0;
+  padding: var(--uxl-mapped-theme-layout-spacing-micro-2);
+}
+
+/* Trailing Slot – p=8px, gap=8px, shrink-0, justify-center */
+.uxl-navigation__trailing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--uxl-mapped-theme-layout-spacing-micro-2);
+  height: 100%;
+  padding: var(--uxl-mapped-theme-layout-spacing-micro-2);
+  flex-shrink: 0;
+}
+
+/* Secondary Nav – bar uses --uxl-color-switcher-* when [data-color-switcher] is set (see Navigation.tsx). */
+.uxl-navigation__secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  width: 100%;
+  background: var(
+    --uxl-color-switcher-background,
+    var(--uxl-mapped-component-navigation-secondary-nav-color-background)
+  );
+  color: var(
+    --uxl-color-switcher-text,
+    var(--uxl-mapped-component-navigation-secondary-nav-color-foreground)
+  );
+  --uxl-icon-context-color: var(
+    --uxl-color-switcher-interactive-icon,
+    var(--uxl-mapped-component-navigation-secondary-nav-color-interactive-foreground)
+  );
+  z-index: 1;
+}
+
+
+
+/* Bottom Slot inner – max-width 1120px, p=8px, gap=8px */
+.uxl-navigation__bottom-inner {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  gap: var(--uxl-mapped-theme-layout-spacing-micro-2);
+  height: 100%;
+  min-width: 0;
+  max-width: var(--uxl-mapped-component-navigation-max-width);
+  padding: var(--uxl-mapped-theme-layout-spacing-micro-2);
+}
+
+/* Logo – 48px per Figma Leading Slot default */
+.uxl-navigation__logo,
+.uxl-navigation__logo-placeholder {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Placeholder-only: gray block when no logo provided */
+.uxl-navigation__logo-placeholder:not(svg) {
+  background: var(--uxl-mapped-component-navigation-primary-nav-color-interactive-foreground);
+  opacity: 0.15;
+  border-radius: 4px;
+}
+
+/* Primary nav: IconButton (emphasis low) uses nav interactive foreground */
+.uxl-navigation__primary .uxl-icon-button.uxl-icon-button--text,
+.uxl-navigation__primary .uxl-icon-button.uxl-icon-button--text * {
+  color: var(--uxl-mapped-component-navigation-primary-nav-color-interactive-foreground);
+}
+
+.uxl-navigation__primary .uxl-icon-button.uxl-icon-button--text {
+  --uxl-icon-context-color: var(--uxl-mapped-component-navigation-primary-nav-color-interactive-foreground);
+}
+
+/* Primary nav: Button (emphasis low) uses nav interactive foreground */
+.uxl-navigation__primary .uxl-button.uxl-button--text,
+.uxl-navigation__primary .uxl-button.uxl-button--text * {
+  color: var(--uxl-mapped-component-navigation-primary-nav-color-interactive-foreground);
+}
+
+.uxl-navigation__primary .uxl-button.uxl-button--text {
+  --uxl-icon-context-color: var(--uxl-mapped-component-navigation-primary-nav-color-interactive-foreground);
+}
+
+/* Secondary nav: text buttons follow bar [data-color-switcher], fallback to mapped secondary nav tokens */
+.uxl-navigation__secondary .uxl-button.uxl-button--text,
+.uxl-navigation__secondary .uxl-button.uxl-button--text * {
+  color: var(
+    --uxl-color-switcher-interactive-icon,
+    var(--uxl-mapped-component-navigation-secondary-nav-color-interactive-foreground)
+  );
+}
+
+.uxl-navigation__secondary .uxl-button.uxl-button--text {
+  --uxl-icon-context-color: var(
+    --uxl-color-switcher-interactive-icon,
+    var(--uxl-mapped-component-navigation-secondary-nav-color-interactive-foreground)
+  );
+}

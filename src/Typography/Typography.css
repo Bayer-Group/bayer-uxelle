@@ -1,0 +1,215 @@
+.typography-container {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.typography-container-width-auto {
+  width: auto;
+  min-width: 0; /* Allow shrinking in flex layouts so text can wrap */
+}
+
+.typography-container-width-full {
+  width: 100%;
+  min-width: 0; /* Allow shrinking in flex layouts so text can wrap */
+}
+
+.typography-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  line-height: 0;
+  position: relative;
+  flex-shrink: 0;
+  min-width: 0; /* Allow shrinking in flex layouts so text can wrap */
+}
+
+.typography-text-container-width-auto {
+  flex: 1 1 0;
+  min-height: auto;
+  min-width: 0; /* Allow shrinking so text can wrap in constrained flex parents */
+  max-width: 100%; /* Constrain to parent so text wraps */
+}
+
+.typography-text-container-width-full {
+  flex: 1 0 0;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+.typography-text {
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+/* Typography variants using component-specific CSS variables */
+/* Breakpoint variables (font-size, line-height, letter-spacing) are scoped to .breakpoint class */
+.typography-display-large {
+  font-family: var(--uxl-mapped-component-typography-font-family-display);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-display-large);
+  font-size: var(--uxl-mapped-component-typography-font-size-display-large);
+  line-height: var(--uxl-mapped-component-typography-line-height-display-large);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-display-large);
+}
+
+.typography-display-medium {
+  font-family: var(--uxl-mapped-component-typography-font-family-display);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-display-medium);
+  font-size: var(--uxl-mapped-component-typography-font-size-display-medium);
+  line-height: var(--uxl-mapped-component-typography-line-height-display-medium);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-display-medium);
+}
+
+.typography-display-small {
+  font-family: var(--uxl-mapped-component-typography-font-family-display);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-display-small);
+  font-size: var(--uxl-mapped-component-typography-font-size-display-small);
+  line-height: var(--uxl-mapped-component-typography-line-height-display-small);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-display-small);
+}
+
+.typography-display-extra-small {
+  font-family: var(--uxl-mapped-component-typography-font-family-display);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-display-extra-small);
+  font-size: var(--uxl-mapped-component-typography-font-size-display-extra-small);
+  line-height: var(--uxl-mapped-component-typography-line-height-display-extra-small);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-display-extra-small);
+}
+
+.typography-component-medium {
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-component-medium);
+  font-size: var(--uxl-mapped-component-typography-font-size-component-medium);
+  line-height: var(--uxl-mapped-component-typography-line-height-component-medium);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-component-medium);
+}
+
+.typography-component-medium-alt {
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-component-medium-alt);
+  font-size: var(--uxl-mapped-component-typography-font-size-component-medium);
+  line-height: var(--uxl-mapped-component-typography-line-height-component-medium);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-component-medium);
+}
+
+.typography-body-medium {
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-body-medium);
+  font-size: var(--uxl-mapped-component-typography-font-size-body-medium);
+  line-height: var(--uxl-mapped-component-typography-line-height-body-medium);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-body-medium);
+}
+
+.typography-body-medium-alt {
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-body-medium-alt);
+  font-size: var(--uxl-mapped-component-typography-font-size-body-medium);
+  line-height: var(--uxl-mapped-component-typography-line-height-body-medium);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-body-medium);
+}
+
+.typography-body-small {
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-body-small);
+  font-size: var(--uxl-mapped-component-typography-font-size-body-small);
+  line-height: var(--uxl-mapped-component-typography-line-height-body-small);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-body-small);
+}
+
+.typography-body-small-alt {
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-body-small-alt);
+  font-size: var(--uxl-mapped-component-typography-font-size-body-small);
+  line-height: var(--uxl-mapped-component-typography-line-height-body-small);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-body-small);
+}
+
+.typography-condensed {
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-condensed);
+  font-size: var(--uxl-mapped-component-typography-font-size-condensed);
+  line-height: var(--uxl-mapped-component-typography-line-height-condensed);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-condensed);
+}
+
+.typography-condensed-alt {
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-condensed-alt);
+  font-size: var(--uxl-mapped-component-typography-font-size-condensed);
+  line-height: var(--uxl-mapped-component-typography-line-height-condensed);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-condensed);
+}
+
+.typography-overline {
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-overline);
+  font-size: var(--uxl-mapped-component-typography-font-size-overline);
+  line-height: var(--uxl-mapped-component-typography-line-height-overline);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-overline);
+  text-transform: uppercase;
+}
+
+.typography-overline-alt {
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-overline-alt);
+  font-size: var(--uxl-mapped-component-typography-font-size-overline);
+  line-height: var(--uxl-mapped-component-typography-line-height-overline);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-overline);
+  text-transform: uppercase;
+}
+
+.typography-button {
+  font-family: var(--uxl-mapped-component-typography-font-family-body);
+  font-weight: var(--uxl-mapped-component-typography-font-weight-button);
+  font-size: var(--uxl-mapped-component-typography-font-size-button);
+  line-height: var(--uxl-mapped-component-typography-line-height-button);
+  letter-spacing: var(--uxl-mapped-component-typography-letter-spacing-button);
+}
+
+/* Color variants: Display (extra small → large) use headline; all other types use body.
+ * Custom Property Stacks: var(--uxl-color-switcher-X, var(--uxl-mapped-component-...))
+ * so nearest [data-color-switcher] ancestor wins. See Button.css, component-creation.mdc. */
+.typography-color-display {
+  color: var(
+    --uxl-color-switcher-headline,
+    var(--uxl-mapped-component-typography-color-headline)
+  );
+}
+
+.typography-color-body {
+  color: var(
+    --uxl-color-switcher-text,
+    var(--uxl-mapped-component-typography-color-body)
+  );
+}
+
+/* Width variants - text always wraps with pretty line breaks */
+.typography-width-auto {
+  white-space: normal;
+  min-width: 0;
+}
+
+.typography-width-full {
+  white-space: pre-wrap;
+  min-width: 0; /* Allow shrinking in flex layouts so text can wrap */
+}
+
+/* Truncation variant - ellipsis when text overflows */
+.typography-truncation {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Inline variant - makes typography display inline instead of flex/block */
+.typography-inline .typography-container {
+  display: inline;
+  height: auto;
+}
+
+.typography-inline .typography-text-container {
+  display: inline;
+  height: auto;
+}

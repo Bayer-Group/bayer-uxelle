@@ -1,0 +1,67 @@
+/**
+ * Divider - Elle Central Library
+ * Uses --uxl-mapped-component tokens only
+ */
+
+.uxl-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Horizontal orientation */
+.uxl-divider--horizontal {
+  width: 100%;
+  min-height: 0;
+}
+
+.uxl-divider--horizontal .uxl-divider__line {
+  flex: 1;
+  height: 0;
+  border-top-width: var(--uxl-mapped-component-divider-low-weight);
+  border-top-style: solid;
+  border-top-color: var(--uxl-mapped-component-divider-low-color);
+}
+
+.uxl-divider--horizontal.uxl-divider--high .uxl-divider__line {
+  border-top-width: var(--uxl-mapped-component-divider-high-weight);
+  border-top-color: var(--uxl-mapped-component-divider-high-color);
+}
+
+/* Vertical orientation */
+.uxl-divider--vertical {
+  flex-direction: column;
+  align-self: stretch;
+  min-height: 1px;
+  min-width: 0;
+}
+
+.uxl-divider--vertical .uxl-divider__line {
+  flex: 1;
+  width: 0;
+  border-left-width: var(--uxl-mapped-component-divider-low-weight);
+  border-left-style: solid;
+  border-left-color: var(--uxl-mapped-component-divider-low-color);
+}
+
+.uxl-divider--vertical.uxl-divider--high .uxl-divider__line {
+  border-left-width: var(--uxl-mapped-component-divider-high-weight);
+  border-left-color: var(--uxl-mapped-component-divider-high-color);
+}
+
+/* Text variant - horizontal only */
+.uxl-divider--horizontal.uxl-divider--with-text {
+  gap: 0;
+}
+
+.uxl-divider--horizontal.uxl-divider--with-text .uxl-divider__line {
+  flex: 1;
+}
+
+.uxl-divider__text {
+  flex-shrink: 0;
+  padding-left: var(--uxl-mapped-component-divider-typography-padding-horizontal);
+  padding-right: var(--uxl-mapped-component-divider-typography-padding-horizontal);
+  background-color: var(--uxl-mapped-component-divider-typography-color-background);
+}

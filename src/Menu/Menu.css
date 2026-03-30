@@ -1,0 +1,81 @@
+/**
+ * Menu - Elle Central Library
+ * Uses --uxl-mapped-component tokens only
+ */
+
+.uxl-menu {
+  --uxl-icon-context-color: var(--uxl-mapped-component-listitem-color-icon);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  width: fit-content;
+  overflow: visible;
+}
+
+/* Direction: vertical alignment of content */
+.uxl-menu--top-left,
+.uxl-menu--top-center,
+.uxl-menu--top-right {
+  flex-direction: column-reverse;
+  overflow: visible;
+}
+
+.uxl-menu--bottom-left,
+.uxl-menu--bottom-center,
+.uxl-menu--bottom-right {
+  flex-direction: column;
+  overflow: visible;
+}
+
+/* Wrapper (trigger) */
+.uxl-menu__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-shrink: 0;
+  overflow: visible;
+  
+}
+
+/* Menu panel - rendered via portal to document.body (avoids overflow clipping) */
+.uxl-menu__panel {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  border-radius: var(--uxl-mapped-component-menu-border-radius);
+  background: var(--uxl-mapped-component-menu-background);
+  box-shadow: var(--uxl-mapped-component-menu-elevation-level-1-x, 0px)
+      var(--uxl-mapped-component-menu-elevation-level-1-y, 1px)
+      var(--uxl-mapped-component-menu-elevation-level-1-blur, 1px)
+      var(--uxl-mapped-component-menu-elevation-level-1-spread, 0px)
+      var(--uxl-mapped-component-menu-elevation-level-1-color, rgba(12, 9, 10, 0.12)),
+    var(--uxl-mapped-component-menu-elevation-level-2-x, 0px)
+      var(--uxl-mapped-component-menu-elevation-level-2-y, 2px)
+      var(--uxl-mapped-component-menu-elevation-level-2-blur, 1px)
+      var(--uxl-mapped-component-menu-elevation-level-2-spread, -1px)
+      var(--uxl-mapped-component-menu-elevation-level-2-color, rgba(12, 9, 10, 0.14)),
+    var(--uxl-mapped-component-menu-elevation-level-3-x, 0px)
+      var(--uxl-mapped-component-menu-elevation-level-3-y, 1px)
+      var(--uxl-mapped-component-menu-elevation-level-3-blur, 3px)
+      var(--uxl-mapped-component-menu-elevation-level-3-spread, 0px)
+      var(--uxl-mapped-component-menu-elevation-level-3-color, rgba(12, 9, 10, 0.2));
+}
+
+/* Slot (menu content) - overflow: visible so parent's box-shadow isn't clipped */
+.uxl-menu__slot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: visible;
+  min-width: 160px;
+}
+
+
+.uxl-menu__trigger-placeholder {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: var(--uxl-mapped-component-listitem-color-text);
+}
