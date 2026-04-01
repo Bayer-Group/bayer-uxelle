@@ -1,74 +1,44 @@
 {
-  "name": "@uxelle/components",
-  "version": "0.0.1",
-  "description": "UXElle Design System - React Components",
-  "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    },
-    "./styles.css": "./dist/styles.css"
-  },
-  "files": [
-    "dist"
-  ],
-  "sideEffects": [
-    "**/*.css"
+  "name": "uxelle",
+  "version": "0.0.0",
+  "private": true,
+  "description": "UXElle Design System - A React component library",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch ./src",
-    "clean": "rm -rf dist",
-    "lint": "tsc --noEmit",
-    "lint:eslint": "eslint src/",
-    "lint:eslint:fix": "eslint src/ --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\""
+    "build": "npm run build --workspaces --if-present",
+    "dev": "npm run build && concurrently -n components,storybook \"npm run dev --workspace=@uxelle/components\" \"npm run dev --workspace=@uxelle/storybook\"",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:eslint": "eslint .",
+    "lint:eslint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "npm run clean --workspaces --if-present",
+    "generate:icon-code-connect": "tsx scripts/generate-icon-code-connect.ts",
+    "figma:publish:components": "npx figma connect publish -c figma.config.components.json --batch-size 50",
+    "figma:publish:rate-limited:fast": "FIGMA_BATCH_SIZE=400 tsx scripts/figma-publish-rate-limited.ts"
   },
-  "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
+  "engines": {
+    "node": ">=22.0.0"
   },
+  "dependencies": {
+    "material-symbols": "^0.40.2"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@figma/code-connect": "^1.4.2",
     "@types/node": "^22.19.11",
-    "@types/react": "^18.3.0",
-    "@types/react-dom": "^18.3.0",
     "ansi-styles": "^6.0.0",
-    "autoprefixer": "^10.4.0",
-    "concurrently": "^9.1.0",
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "postcss": "^8.4.0",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0",
-    "tsup": "^8.3.0",
-    "tsx": "^4.8.0",
-    "typescript": "^5.7.0",
-    "typescript-eslint": "^8.56.1"
-  },
-  "keywords": [
-    "react",
-    "components",
-    "design-system",
-    "uxelle"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "material-symbols": "^0.43.0"
+    "typescript-eslint": "^8.56.1",
+    "concurrently": "^9.1.0",
+    "tsx": "^4.8.0"
   }
 }

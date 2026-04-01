@@ -1,0 +1,6 @@
+dist/
+build/
+node_modules/
+storybook-static/
+package-lock.json
+*.d.ts

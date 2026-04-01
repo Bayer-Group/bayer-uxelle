@@ -1,0 +1,18 @@
+<!-- Set default theme before React hydrates so CSS variables exist on first paint -->
+<script>
+  (function() {
+    var root = document.documentElement;
+    root.setAttribute('data-bayer-global', 'light');
+    root.setAttribute('data-color-switcher', 'neutral');
+    root.setAttribute('data-breakpoints', 'desktop');
+  })();
+</script>
+<!-- Fallback divider variables when theme CSS loads late - theme rules override these -->
+<style>
+  :root {
+    --uxl-mapped-component-divider-low-color: #3D3D3D;
+    --uxl-mapped-component-divider-low-weight: 1px;
+    --uxl-mapped-component-divider-high-color: #006F9B;
+    --uxl-mapped-component-divider-high-weight: 2px;
+  }
+</style>

@@ -45,5 +45,7 @@ scripts/.code-connect-parsed.json
 *.local
 .storybook-static/
 dist/
+
+# Figma
 *.figma.js
 *.figma.tsx

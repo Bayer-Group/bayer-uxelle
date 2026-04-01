@@ -1,0 +1,64 @@
+{
+  "files": {
+    "velocity": {
+      "outputs": [
+        {
+          "file": "velocity/velocity.css",
+          "extendedCollection": "Velocity",
+          "includesMapped": false,
+          "collections": {
+            "Velocity": {
+              "attribute": "data-velocity",
+              "modes": [
+                "Light",
+                "Dark"
+              ]
+            },
+            "Primitive": {
+              "attribute": "data-primitive",
+              "modes": [
+                "Mode 1"
+              ]
+            },
+            "Ancillary": {
+              "attribute": "data-ancillary",
+              "modes": [
+                "100"
+              ]
+            },
+            "Decorative": {
+              "attribute": "data-decorative",
+              "modes": [
+                "Text Image",
+                "Planning",
+                "Ready To Execute",
+                "In Progress",
+                "Done"
+              ]
+            },
+            "Breakpoints": {
+              "attribute": "data-breakpoints",
+              "modes": [
+                "Desktop",
+                "Mobile",
+                "Tablet",
+                "Desktop Plus"
+              ]
+            },
+            "Color Switcher": {
+              "attribute": "data-color-switcher",
+              "modes": [
+                "Neutral",
+                "Neutral-Alt",
+                "Primary",
+                "Secondary",
+                "Tertiary",
+                "Ancillary"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

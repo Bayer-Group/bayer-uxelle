@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apply theme background to docs story container (light/dark via data-{theme}, color palette via data-color-switcher) */
+.docs-story {
+  background-color: var(--uxl-color-switcher-background, #ffffff);
+  color: var(--uxl-color-switcher-text, #0c090a);
+}

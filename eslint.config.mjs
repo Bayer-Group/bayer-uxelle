@@ -5,12 +5,7 @@ import prettierConfig from "eslint-config-prettier";
 
 export default tseslint.config(
   {
-    ignores: [
-      "**/dist/**",
-      "**/build/**",
-      "**/storybook-static/**",
-      "**/*.figma.tsx",
-    ],
+    ignores: ["**/dist/**", "**/build/**", "**/storybook-static/**", "**/*.figma.tsx"],
   },
   ...tseslint.configs.recommended,
   reactPlugin.configs.flat.recommended,
