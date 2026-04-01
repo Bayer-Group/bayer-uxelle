@@ -1,7 +1,6 @@
 import { forwardRef, type HTMLAttributes } from "react";
 import { Typography } from "../Typography";
 import { Button } from "../Button";
-import { BayerCircleLogo } from "../Navigation";
 import { FacebookIcon } from "./SocialIcons/FacebookIcon";
 import { InstagramIcon } from "./SocialIcons/InstagramIcon";
 import { LinkedinIcon } from "./SocialIcons/LinkedinIcon";
@@ -79,8 +78,18 @@ export function DefaultTopMainContent() {
     <div className="uxl-footer__top-main-default">
       <div className="uxl-footer__top-main-columns">
         <div className="uxl-footer__top-main-column">
-          <Typography type="Body Medium" width text="This Typography component can be replaced by anything in this Content Slot. These are the voyages of the starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before" />
-          <Button emphasis="medium" size="large" trailingIcon trailingIconName="chevron_right" trailingIconVariant="sharpUnfilled">
+          <Typography
+            type="Body Medium"
+            width
+            text="This Typography component can be replaced by anything in this Content Slot. These are the voyages of the starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before"
+          />
+          <Button
+            emphasis="medium"
+            size="large"
+            trailingIcon
+            trailingIconName="chevron_right"
+            trailingIconVariant="sharpUnfilled"
+          >
             <Typography type="Button" width text="Button" />
           </Button>
           <a href="#">
@@ -88,8 +97,18 @@ export function DefaultTopMainContent() {
           </a>
         </div>
         <div className="uxl-footer__top-main-column">
-          <Typography type="Body Medium" width text="This Typography component can be replaced by anything in this Content Slot. These are the voyages of the starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before" />
-          <Button emphasis="medium" size="large" trailingIcon trailingIconName="chevron_right" trailingIconVariant="sharpUnfilled">
+          <Typography
+            type="Body Medium"
+            width
+            text="This Typography component can be replaced by anything in this Content Slot. These are the voyages of the starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before"
+          />
+          <Button
+            emphasis="medium"
+            size="large"
+            trailingIcon
+            trailingIconName="chevron_right"
+            trailingIconVariant="sharpUnfilled"
+          >
             <Typography type="Button" width text="Button" />
           </Button>
           <a href="#">
@@ -130,7 +149,6 @@ export function DefaultTopLegal() {
 export function DefaultBottomMainContent() {
   return (
     <div className="uxl-footer__bottom-main-default">
-      <BayerCircleLogo className="uxl-footer__logo" />
       <Typography type="Condensed Alt" text="Votre espace dédié" />
     </div>
   );
@@ -173,20 +191,16 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
       className = "",
       ...props
     },
-    ref
+    ref,
   ) => {
     const classNames = ["uxl-footer", className].filter(Boolean).join(" ");
 
     return (
       <footer ref={ref} className={classNames} {...props}>
         <div className="uxl-footer__top" data-color-switcher="secondary">
-          <div className="uxl-footer__top-main">
-            {topMainContent ?? <DefaultTopMainContent />}
-          </div>
+          <div className="uxl-footer__top-main">{topMainContent ?? <DefaultTopMainContent />}</div>
           {showTopLegal && (
-            <div className="uxl-footer__top-legal">
-              {topLegal ?? <DefaultTopLegal />}
-            </div>
+            <div className="uxl-footer__top-legal">{topLegal ?? <DefaultTopLegal />}</div>
           )}
         </div>
         <div className="uxl-footer__bottom">
@@ -194,14 +208,12 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
             {bottomMainContent ?? <DefaultBottomMainContent />}
           </div>
           {showBottomLegal && (
-            <div className="uxl-footer__bottom-legal">
-              {bottomLegal ?? <DefaultBottomLegal />}
-            </div>
+            <div className="uxl-footer__bottom-legal">{bottomLegal ?? <DefaultBottomLegal />}</div>
           )}
         </div>
       </footer>
     );
-  }
+  },
 );
 
 Footer.displayName = "Footer";

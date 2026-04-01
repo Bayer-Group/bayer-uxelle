@@ -86,7 +86,6 @@ export type { LanguageSelectorProps, LanguageOption } from "./LanguageSelector";
 export {
   Navigation,
   NAVIGATION_DEFAULTS,
-  BayerCircleLogo,
   DefaultLeadingSlot,
   DefaultCenterSlot,
   DefaultTrailingSlot,

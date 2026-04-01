@@ -1,7 +1,6 @@
 export {
   Navigation,
   NAVIGATION_DEFAULTS,
-  BayerCircleLogo,
   DefaultLeadingSlot,
   DefaultCenterSlot,
   DefaultTrailingSlot,
