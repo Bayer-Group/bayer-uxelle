@@ -1,5 +1,69 @@
 {
   "files": {
+    "farmer": {
+      "outputs": [
+        {
+          "file": "green/green.css",
+          "extendedCollection": "Green",
+          "includesMapped": false,
+          "collections": {
+            "Bayer Crop Science": {
+              "attribute": "data-green",
+              "modes": [
+                "Light",
+                "Dark"
+              ]
+            },
+            "Primitive": {
+              "attribute": "data-primitive",
+              "modes": [
+                "Mode 1"
+              ]
+            },
+            "Decorative": {
+              "attribute": "data-decorative",
+              "modes": [
+                "Raspberry",
+                "Blue",
+                "Medium Blue",
+                "Bright Green",
+                "Medium Green",
+                "Purple",
+                "Dark Purple",
+                "custom test"
+              ]
+            },
+            "Ancillary": {
+              "attribute": "data-ancillary",
+              "modes": [
+                "100",
+                "200"
+              ]
+            },
+            "Breakpoints": {
+              "attribute": "data-breakpoints",
+              "modes": [
+                "Desktop",
+                "Mobile",
+                "Tablet",
+                "Desktop Plus"
+              ]
+            },
+            "Color Switcher": {
+              "attribute": "data-color-switcher",
+              "modes": [
+                "Neutral",
+                "Neutral-Alt",
+                "Primary",
+                "Secondary",
+                "Tertiary",
+                "Ancillary"
+              ]
+            }
+          }
+        }
+      ]
+    },
     "velocity": {
       "outputs": [
         {

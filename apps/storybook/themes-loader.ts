@@ -4,5 +4,6 @@
  * Keep in sync with themes in themes/ directory.
  * Uses @themes alias from main.ts (resolves to monorepo root/themes).
  */
+import "@themes/green/green.css";
 import "@themes/velocity/velocity.css";
 
