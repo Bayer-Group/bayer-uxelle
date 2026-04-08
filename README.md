@@ -22,6 +22,16 @@ npm run dev
 npm run build
 ```
 
+## Screenshots
+
+### AccordionGroup
+
+![AccordionGroup Storybook screenshot](.github/images/accordian-screenshot.png)
+
+### Design System Example
+
+![Design system example screenshot](.github/images/example-screenshot.png)
+
 ## Architecture Decisions
 
 See the `docs/adr/` directory for architecture decision records.
