@@ -133,10 +133,10 @@ Theme tokens (colors, spacing, typography scales) are provided separately via CS
 uxElle ships with two theme packages, each supporting **light and dark modes**:
 
 
-| Theme | CSS File | Brand |
+| Theme | CSS File |
 | :--- | :--- | :--- |
-| **Green** | `themes/green/green.css` | Bayer Crop Science |
-| **Velocity** | `themes/velocity/velocity.css` | Velocity |
+| **Green** | `themes/green/green.css` |
+| **Velocity** | `themes/velocity/velocity.css` |
 
 Apply a theme via `data-*` attributes on any parent element for scoped theming, color-mode switching, decorative palettes, and responsive breakpoint tokens.
 
