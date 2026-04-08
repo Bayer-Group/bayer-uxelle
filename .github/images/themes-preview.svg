@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="300" viewBox="0 0 720 300" fill="none">
+  <rect width="720" height="300" fill="#F6F8F9"/>
+  <!-- Green theme panel (colors from themes/green/green.css light) -->
+  <rect x="16" y="16" width="336" height="268" rx="12" fill="#EFF8FF" stroke="#BABABA" stroke-width="1"/>
+  <text x="40" y="52" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="600" fill="#092B3E">Green</text>
+  <text x="40" y="76" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#1C4723">Bayer Crop Science · light</text>
+  <rect x="40" y="96" width="288" height="56" rx="8" fill="#00425C"/>
+  <text x="56" y="130" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Primary surface</text>
+  <rect x="40" y="168" width="120" height="36" rx="6" fill="#89D329"/>
+  <text x="68" y="191" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#1C4723">Button</text>
+  <text x="40" y="238" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#092B3E" opacity="0.85">data-green=&quot;light&quot; | &quot;dark&quot;</text>
+  <!-- Velocity theme panel (colors from themes/velocity/velocity.css light) -->
+  <rect x="368" y="16" width="336" height="268" rx="12" fill="#FFFFFF" stroke="#BABABA" stroke-width="1"/>
+  <text x="392" y="52" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="600" fill="#1D1D1D">Velocity</text>
+  <text x="392" y="76" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#4E4E4E">Velocity · light</text>
+  <rect x="392" y="96" width="288" height="56" rx="8" fill="#282525"/>
+  <text x="408" y="130" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Primary surface</text>
+  <rect x="392" y="168" width="120" height="36" rx="6" fill="#4E4E4E"/>
+  <text x="428" y="191" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Button</text>
+  <text x="392" y="238" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#1D1D1D" opacity="0.85">data-velocity=&quot;light&quot; | &quot;dark&quot;</text>
+</svg>
