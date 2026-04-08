@@ -1,8 +1,8 @@
 <div align="center">
 
-# UXElle
+# uxElle
 
-**A React component library and design system for Bayer**
+**A React component library and next-gendesign system for Bayer**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-009fe3.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/Node-%E2%89%A522-10a962.svg)](https://nodejs.org)
