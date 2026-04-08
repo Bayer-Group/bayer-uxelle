@@ -1,25 +1,42 @@
 <div align="center">
 
-# uxElle
-
-**A React component library and next-gen design system for Bayer**
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-009fe3.svg)](LICENSE)
-[![Node](https://img.shields.io/badge/Node-%E2%89%A522-10a962.svg)](https://nodejs.org)
-[![React](https://img.shields.io/badge/React-18%20%7C%2019-61dafb.svg)](https://react.dev)
-[![Early Preview](https://img.shields.io/badge/Status-Early%20Preview-ff6900.svg)](#overview)
-
-<br />
-
 <picture>
   <img alt="uxElle design system — a mosaic of UI components including buttons, text fields, toggles, typography scales, menus, and navigation elements in Bayer's signature blue palette" src=".github/images/uxElle-Readme-Blue%202.jpg" width="100%" />
 </picture>
 
+<br />
+
+# uxElle
+
+### The next-gen React design system for Bayer
+
+Build polished, accessible UIs from a single `npm install` — no CSS-in-JS runtime, no drama.
+
+<br />
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-009fe3.svg?style=for-the-badge)](LICENSE)
+[![Node](https://img.shields.io/badge/Node-%E2%89%A522-10a962.svg?style=for-the-badge)](https://nodejs.org)
+[![React](https://img.shields.io/badge/React-18%20%7C%2019-61dafb.svg?style=for-the-badge)](https://react.dev)
+[![Status](https://img.shields.io/badge/Status-Early%20Preview-ff6900.svg?style=for-the-badge)](#overview)
+
 </div>
 
-## Overview
+<br />
 
-UXElle provides production-ready React components styled with design tokens from Bayer's design language. Components ship as ESM and CJS with TypeScript declarations and a bundled CSS stylesheet — no CSS-in-JS runtime required.
+<div align="center">
+<table>
+<tr>
+<td align="center"><strong>22 Components</strong><br /><sub>Actions &middot; Content &middot; Data<br />Navigation &middot; Layout &middot; Forms</sub></td>
+<td align="center"><strong>Multi-Theme</strong><br /><sub>Green &amp; Velocity<br />Light + Dark modes</sub></td>
+<td align="center"><strong>Zero Runtime</strong><br /><sub>Plain CSS &middot; PostCSS<br />No JS overhead</sub></td>
+<td align="center"><strong>RSC Ready</strong><br /><sub><code>"use client"</code> marked<br />Next.js App Router</sub></td>
+</tr>
+</table>
+</div>
+
+<br />
+
+---
 
 ## Table of Contents
 
@@ -34,28 +51,27 @@ UXElle provides production-ready React components styled with design tokens from
 - [Contributing](#contributing)
 - [License](#license)
 
-### Highlights
+---
 
-- **22 components** across Actions, Content, Data, Navigation, Layout, and Form categories
-- **Multi-theme support** with CSS custom properties (Green / Velocity) including light and dark modes
-- **RSC compatible** — all outputs are marked `"use client"` for Next.js App Router compatibility
-- **Figma connected** — components sync with Figma via Code Connect
-- **Zero runtime overhead** — plain CSS scoped per component, processed with PostCSS + Autoprefixer
-- **Material Symbols** icon set built in
+## Overview
+
+UXElle provides **production-ready React components** styled with design tokens from Bayer's design language. Components ship as ESM and CJS with TypeScript declarations and a bundled CSS stylesheet.
+
+![Storybook documentation page showing the uxElle Design System with color tokens, typography scale, and component sidebar](.github/images/example-screenshot.png)
+
+---
 
 ## Quick Start
 
 ```bash
-# Clone and install
 git clone https://github.com/Bayer-Group/bayer-uxelle.git && cd bayer-uxelle
 npm install
-
-# Start Storybook for development
-npm run dev
-
-# Build all packages
-npm run build
+npm run dev        # Storybook + watch mode
 ```
+
+> **That's it.** Three commands and you're live.
+
+---
 
 ## Usage
 
@@ -74,41 +90,57 @@ function App() {
 
 Theme tokens (colors, spacing, typography scales) are provided separately via CSS custom properties — see the [`themes/`](themes/) directory.
 
+---
+
 ## Components
 
-| Category | Components |
-| :--- | :--- |
-| **Actions** | `Button` &middot; `IconButton` &middot; `Link` &middot; `NavButton` &middot; `Switch` |
-| **Content** | `Typography` &middot; `Icon` &middot; `Divider` &middot; `Label` &middot; `HelperText` |
-| **Data** | `List` &middot; `ListItem` &middot; `ListColumns` &middot; `Accordion` &middot; `AccordionGroup` |
-| **Navigation** | `Navigation` &middot; `Menu` &middot; `LanguageSelector` &middot; `LanguageSelectorButton` |
-| **Layout** | `Layout` &middot; `Footer` |
-| **Form** | `Textfield` |
+<table>
+<tr><th align="left">Category</th><th align="left">Components</th></tr>
+<tr>
+  <td><strong>Actions</strong></td>
+  <td><code>Button</code> &middot; <code>IconButton</code> &middot; <code>Link</code> &middot; <code>NavButton</code> &middot; <code>Switch</code></td>
+</tr>
+<tr>
+  <td><strong>Content</strong></td>
+  <td><code>Typography</code> &middot; <code>Icon</code> &middot; <code>Divider</code> &middot; <code>Label</code> &middot; <code>HelperText</code></td>
+</tr>
+<tr>
+  <td><strong>Data</strong></td>
+  <td><code>List</code> &middot; <code>ListItem</code> &middot; <code>ListColumns</code> &middot; <code>Accordion</code> &middot; <code>AccordionGroup</code></td>
+</tr>
+<tr>
+  <td><strong>Navigation</strong></td>
+  <td><code>Navigation</code> &middot; <code>Menu</code> &middot; <code>LanguageSelector</code> &middot; <code>LanguageSelectorButton</code></td>
+</tr>
+<tr>
+  <td><strong>Layout</strong></td>
+  <td><code>Layout</code> &middot; <code>Footer</code></td>
+</tr>
+<tr>
+  <td><strong>Form</strong></td>
+  <td><code>Textfield</code></td>
+</tr>
+</table>
 
-<details>
-<summary><strong>AccordionGroup preview</strong></summary>
-<br />
+<div align="center">
 <img alt="Storybook preview of AccordionGroup: stacked expandable panels with titles, chevrons, and body content" src=".github/images/accordion-screenshot.png" width="720" />
-</details>
+</div>
+
+---
 
 ## Themes
 
-UXElle ships with two theme packages, each supporting light and dark modes:
+uxElle ships with two theme packages, each supporting **light and dark modes**:
 
-<div align="center">
-
-<picture>
-  <img alt="Abstract side-by-side preview of Green (Crop Science) and Velocity light themes: neutral background, primary surface strip, and default button swatches with data attribute hints" src=".github/images/themes-preview.svg" width="720" />
-</picture>
-
-</div>
 
 | Theme | CSS File | Brand |
 | :--- | :--- | :--- |
 | **Green** | `themes/green/green.css` | Bayer Crop Science |
 | **Velocity** | `themes/velocity/velocity.css` | Velocity |
 
-Themes are applied via `data-*` attributes on a parent element, enabling scoped theming, color switching, decorative palettes, and responsive breakpoint tokens.
+Apply a theme via `data-*` attributes on any parent element for scoped theming, color-mode switching, decorative palettes, and responsive breakpoint tokens.
+
+---
 
 ## Project Structure
 
@@ -124,23 +156,29 @@ bayer-uxelle/
 └── package.json          Monorepo root (npm workspaces)
 ```
 
+---
+
 ## Development
 
-This is a monorepo managed with **npm workspaces**. Key scripts from the root:
+Monorepo managed with **npm workspaces**. All scripts run from the root:
 
-| Script | Description |
+| Script | What it does |
 | :--- | :--- |
-| `npm run dev` | Start components in watch mode + Storybook |
-| `npm run build` | Build all packages |
+| `npm run dev` | Components in watch mode + Storybook |
+| `npm run build` | Build every package |
 | `npm run lint` | Type-check all packages |
-| `npm run lint:eslint` | Lint with ESLint |
-| `npm run format` | Format with Prettier |
-| `npm run clean` | Remove all `dist/` directories |
+| `npm run lint:eslint` | ESLint pass |
+| `npm run format` | Prettier pass |
+| `npm run clean` | Nuke all `dist/` directories |
 
 ### Requirements
 
-- **Node.js** >= 22
-- **npm** (ships with Node)
+| Dependency | Version |
+| :--- | :--- |
+| **Node.js** | >= 22 |
+| **npm** | ships with Node |
+
+---
 
 ## Architecture Decisions
 
@@ -155,14 +193,22 @@ Key technical choices are documented as ADRs in [`docs/adr/`](docs/adr/):
 | [005](docs/adr/005-npm-workspaces-monorepo.md) | npm workspaces for the monorepo |
 | [006](docs/adr/006-tsup-bundler.md) | tsup as the bundler |
 
+---
+
 ## Contributing
 
 We welcome contributions! Please read our [Contribution Guidelines](CONTRIBUTING.md) before submitting a pull request.
 
+---
+
 <div align="center">
 
-## License
+<br />
 
-[MIT](LICENSE) &copy; 2026 Bayer AG
+**Built with care at Bayer.**
+
+[MIT License](LICENSE) &copy; 2026 Bayer AG
+
+<br />
 
 </div>
