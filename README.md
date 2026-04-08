@@ -2,15 +2,17 @@
 
 # uxElle
 
-**A React component library and next-gendesign system for Bayer**
+**A React component library and next-gen design system for Bayer**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-009fe3.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/Node-%E2%89%A522-10a962.svg)](https://nodejs.org)
 [![React](https://img.shields.io/badge/React-18%20%7C%2019-61dafb.svg)](https://react.dev)
 [![Early Preview](https://img.shields.io/badge/Status-Early%20Preview-ff6900.svg)](#overview)
 
+<br />
+
 <picture>
-  <img alt="UXElle Storybook documentation: example layout with typography, buttons, and component previews" src=".github/images/example-screenshot.png" width="720" />
+  <img alt="uxElle design system — a mosaic of UI components including buttons, text fields, toggles, typography scales, menus, and navigation elements in Bayer's signature blue palette" src=".github/images/uxElle-Readme-Blue%202.jpg" width="100%" />
 </picture>
 
 </div>
