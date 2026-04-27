@@ -28,7 +28,7 @@
   },
   "license": "GPL-3.0",
   "devDependencies": {
-    "@figma/code-connect": "^1.4.2",
+    "@figma/code-connect": "^1.4.4",
     "@types/node": "^22.19.11",
     "ansi-styles": "^6.0.0",
     "eslint": "^9.15.0",
