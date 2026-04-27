@@ -14,7 +14,7 @@ Build polished, accessible UIs from a single `npm install` — no CSS-in-JS runt
 
 <br />
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-009fe3.svg?style=for-the-badge)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-009fe3.svg?style=for-the-badge)](LICENSE)
 [![Node](https://img.shields.io/badge/Node-%E2%89%A522-10a962.svg?style=for-the-badge)](https://nodejs.org)
 [![React](https://img.shields.io/badge/React-18%20%7C%2019-61dafb.svg?style=for-the-badge)](https://react.dev)
 [![Status](https://img.shields.io/badge/Status-Early%20Preview-ff6900.svg?style=for-the-badge)](#overview)
@@ -207,7 +207,7 @@ We welcome contributions! Please read our [Contribution Guidelines](CONTRIBUTING
 
 **Built with care at Bayer.**
 
-[MIT License](LICENSE) &copy; 2026 Bayer AG
+[GNU General Public License v3.0](LICENSE) &copy; 2026 Bayer AG
 
 <br />
 

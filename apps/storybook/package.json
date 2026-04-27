@@ -9,7 +9,7 @@
     "build": "storybook build",
     "clean": "rm -rf storybook-static"
   },
-  "license": "MIT",
+  "license": "GPL-3.0",
   "dependencies": {
     "@uxelle/components": "*",
     "react": "^18.3.0",
